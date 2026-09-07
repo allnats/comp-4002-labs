@@ -20,6 +20,30 @@ header .title {
 
 .container-employee-dept {
   display: grid;
+  padding: 0 3rem;
   grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   gap: 2rem;
+}
+
+.container-employee-dept > article {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+  border: 1px solid #c1c0c0;
+}
+
+article h2 {
+  margin: 0;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #c1c0c0;
+}
+
+.container-employee-dept ul {
+  margin: 0;
+  padding: 1rem 0;
+  list-style-type: none;
 }
