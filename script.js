@@ -183,6 +183,10 @@ const tableData = [
   },
 ];
 
+/**
+ * Dynamically adds data to the table-employee-dept table.
+ * @param {*} tableData
+ */
 const populateTable = (tableData) => {
   const table = document.getElementById("table-employee-dept");
 
@@ -200,6 +204,9 @@ const populateTable = (tableData) => {
   });
 };
 
+/**
+ * Dynamically update the copyright year.
+ */
 const updateCopyrightYear = () => {
   const copyrightYear = document.querySelector(".copyright-year");
   copyrightYear.innerHTML = new Date().getFullYear();
