@@ -200,4 +200,11 @@ const populateTable = (tableData) => {
   });
 };
 
+const updateCopyrightYear = () => {
+  const copyrightYear = document.querySelector(".copyright-year");
+  copyrightYear.innerHTML = new Date().getFullYear();
+};
+
+// Add data
 populateTable(tableData);
+updateCopyrightYear();
