@@ -184,18 +184,19 @@ const tableData = [
 ];
 
 const populateTable = (tableData) => {
-  const employeeRow = document.getElementById("employee-names");
-  const departmentRow = document.getElementById("employee-departments");
+  const table = document.getElementById("table-employee-dept");
 
   tableData.forEach((data) => {
+    const tableRow = document.createElement("tr");
     const newEmployee = document.createElement("td");
     const newDepartment = document.createElement("td");
     newEmployee.innerHTML = data.name;
     newDepartment.innerHTML = data.department;
 
     // Append data
-    employeeRow.appendChild(newEmployee);
-    departmentRow.appendChild(departmentRow);
+    tableRow.appendChild(newEmployee);
+    tableRow.append(newDepartment);
+    table.appendChild(tableRow);
   });
 };
 
