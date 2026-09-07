@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header img {
+  width: 9rem;
+}
+
+header .title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.greeting {
+  color: #292929;
+  font-style: italic;
+}
