@@ -1,3 +1,7 @@
+import { tableData } from "./data";
+
+// Deprecated: CORS error when fetching a data locally.
+// Replaced with ES Module import (see data.js).
 async function loadData() {
   try {
     const res = await fetch("./employee-dept.json");
@@ -29,3 +33,5 @@ const populateTable = (tableData) => {
     departmentRow.appendChild(departmentRow);
   });
 };
+
+populateTable(tableData);
