@@ -17,3 +17,9 @@ header .title {
   color: #292929;
   font-style: italic;
 }
+
+.container-employee-dept {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
