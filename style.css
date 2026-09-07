@@ -1,16 +1,17 @@
+:root {
+  font-family: sans-serif;
+}
+
 header {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 header img {
   width: 9rem;
-}
-
-header .title {
-  flex-grow: 1;
-  text-align: center;
 }
 
 .greeting {
@@ -46,4 +47,8 @@ article h2 {
   margin: 0;
   padding: 1rem 0;
   list-style-type: none;
+}
+
+footer p {
+  text-align: center;
 }
