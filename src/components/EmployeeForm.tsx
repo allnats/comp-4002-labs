@@ -44,11 +44,11 @@ function EmployeeForm() {
           value={department}
           onChange={(e) => setDepartment(e.target.value)}
         >
-          <option value="" selected>
-            Select a Department
-          </option>
-          {deptList.map((dept) => (
-            <option value={dept}>{dept}</option>
+          <option value="">Select a Department</option>
+          {deptList.map((dept, idx) => (
+            <option value={dept} key={`${dept}${idx}`}>
+              {dept}
+            </option>
           ))}
         </select>
 
