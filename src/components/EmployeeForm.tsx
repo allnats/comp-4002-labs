@@ -4,11 +4,14 @@ import type { SubmitEvent } from "react";
 function EmployeeForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const deptList: string[] = ["IT", "Human Resources", "Accounting"];
+  const [department, setDepartment] = useState("");
+
+  const deptList: string[] = ["IT", "Finance", "Human Resources"];
 
   function handleFormSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(`${firstName} ${lastName}`);
+    console.log(`Department: ${department}`);
   }
 
   return (
@@ -36,7 +39,11 @@ function EmployeeForm() {
 
         {/* Department drop down list */}
         <label htmlFor="department">Employee Department:</label>
-        <select name="department">
+        <select
+          name="department"
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+        >
           <option value="" selected>
             Select a Department
           </option>
@@ -44,6 +51,9 @@ function EmployeeForm() {
             <option value={dept}>{dept}</option>
           ))}
         </select>
+
+        {/* Submit button */}
+        <button type="submit">Submit form</button>
       </fieldset>
     </form>
   );
