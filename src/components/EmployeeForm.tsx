@@ -25,7 +25,7 @@ function EmployeeForm({
     console.log(`Department: ${department}`);
 
     // Validation here
-    if (firstName.length < 4 || !departmentList.includes(department)) {
+    if (firstName.length < 3 || !departmentList.includes(department)) {
       alert("Invalid form");
       clearFields();
     }
