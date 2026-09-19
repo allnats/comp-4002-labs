@@ -1,5 +1,6 @@
 import Header from "../common/header/Header";
 import Footer from "../common/footer/Footer";
+import EmployeeForm from "../EmployeeForm";
 import data from "../../data/employee-dept.json";
 import type Department from "../../models/department";
 import type Employee from "../../models/employee";
@@ -12,6 +13,7 @@ export default function EmployeeDirectory() {
     <>
       <Header />
       <ListDepartments data={employeeDeptData} />
+      <EmployeeForm />
       <Footer />
     </>
   );
