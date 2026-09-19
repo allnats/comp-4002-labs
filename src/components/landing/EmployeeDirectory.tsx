@@ -1,5 +1,4 @@
-import Header from "../common/header/Header";
-import Footer from "../common/footer/Footer";
+import { useState } from "react";
 import EmployeeForm from "../EmployeeForm";
 import data from "../../data/employee-dept.json";
 import type Department from "../../models/department";
@@ -9,12 +8,18 @@ import "./EmployeeDirectory.css";
 const employeeDeptData: Department[] = data;
 
 export default function EmployeeDirectory() {
+  const [employeeDepartment, setEmployeeDepartment] =
+    useState(employeeDeptData);
+
+  const departmentList: string[] = employeeDepartment.map((d) => d.name);
+
   return (
     <>
-      <Header />
-      <ListDepartments data={employeeDeptData} />
-      <EmployeeForm />
-      <Footer />
+      <ListDepartments data={employeeDepartment} />
+      <EmployeeForm
+        departmentList={departmentList}
+        updateEmployeeDept={setEmployeeDepartment}
+      />
     </>
   );
 }

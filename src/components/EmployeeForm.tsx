@@ -1,12 +1,23 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
+import type Department from "../models/department";
 
-function EmployeeForm() {
+function EmployeeForm({
+  departmentList,
+  updateEmployeeDept,
+}: {
+  departmentList: string[];
+  updateEmployeeDept: React.Dispatch<React.SetStateAction<Department[]>>;
+}) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [department, setDepartment] = useState("");
 
-  const deptList: string[] = ["IT", "Finance", "Human Resources"];
+  function clearFields() {
+    setFirstName("");
+    setLastName("");
+    setDepartment("");
+  }
 
   function handleFormSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -14,12 +25,20 @@ function EmployeeForm() {
     console.log(`Department: ${department}`);
 
     // Validation here
-    if (firstName.length < 4 || !deptList.includes(department)) {
+    if (firstName.length < 4 || !departmentList.includes(department)) {
       alert("Invalid form");
-      setFirstName("");
-      setLastName("");
-      setDepartment("");
+      clearFields();
     }
+
+    updateEmployeeDept((currList) =>
+      currList.map((d) => {
+        if (d.name === department) {
+          return { ...d, employees: [...d.employees, { firstName, lastName }] };
+        }
+        return d;
+      }),
+    );
+    clearFields();
   }
 
   return (
@@ -53,7 +72,7 @@ function EmployeeForm() {
           onChange={(e) => setDepartment(e.target.value)}
         >
           <option value="">Select a Department</option>
-          {deptList.map((dept, idx) => (
+          {departmentList.map((dept, idx) => (
             <option value={dept} key={`${dept}${idx}`}>
               {dept}
             </option>
