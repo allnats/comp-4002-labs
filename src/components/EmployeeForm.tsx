@@ -12,6 +12,14 @@ function EmployeeForm() {
     e.preventDefault();
     console.log(`${firstName} ${lastName}`);
     console.log(`Department: ${department}`);
+
+    // Validation here
+    if (firstName.length < 4 || !deptList.includes(department)) {
+      alert("Invalid form");
+      setFirstName("");
+      setLastName("");
+      setDepartment("");
+    }
   }
 
   return (
