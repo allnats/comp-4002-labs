@@ -28,6 +28,7 @@ function EmployeeForm({
     if (firstName.length < 3 || !departmentList.includes(department)) {
       alert("Invalid form");
       clearFields();
+      return;
     }
 
     updateEmployeeDept((currList) =>
