@@ -1,76 +1,93 @@
 [
   {
-    "department": "Administration",
-    "employees": ["Zoë Robins", "Madeleine Madden"]
-  },
-  {
-    "department": "Audit",
-    "employees": ["Josha Sadowski", "Kate Fleetwood"]
-  },
-  {
-    "department": "Banking Operations",
+    "name": "Administration",
     "employees": [
-      "Priyanka Bose",
-      "Hammed Animashaun",
-      "Álvaro Morte",
-      "Taylor Napier",
-      "Alan Simmonds"
+      { "firstName": "Zoë", "lastName": "Robins" },
+      { "firstName": "Madeleine", "lastName": "Madden" }
     ]
   },
   {
-    "department": "Communications",
-    "employees": ["Gil Cardinal", "Richard J. Lewis"]
-  },
-  {
-    "department": "Corporate Services",
-    "employees": ["Randy Bradshaw", "Tracey Cook", "Lubomir Mykytiuk"]
-  },
-  {
-    "department": "Facilities",
+    "name": "Audit",
     "employees": [
-      "Dakota House",
-      "Lori Lea Okemah",
-      "Renae Morrisseau",
-      "Rick Belcourt"
+      { "firstName": "Josha", "lastName": "Sadowski" },
+      { "firstName": "Kate", "lastName": "Fleetwood" }
     ]
   },
   {
-    "department": "Financial Services",
+    "name": "Banking Operations",
     "employees": [
-      "Selina Hanusa",
-      "Buffy Gaudry",
-      "Shaneen Ann Fox",
-      "Allan Little",
-      "Danny Rabbit"
+      { "firstName": "Priyanka", "lastName": "Bose" },
+      { "firstName": "Hammed", "lastName": "Animashaun" },
+      { "firstName": "Álvaro", "lastName": "Morte" },
+      { "firstName": "Taylor", "lastName": "Napier" },
+      { "firstName": "Alan", "lastName": "Simmonds" }
     ]
   },
   {
-    "department": "Human Resources",
+    "name": "Communications",
     "employees": [
-      "Jesse Ed Azure",
-      "Stacy Da Silva",
-      "Vladimír Valenta",
-      "Samone Sayeses-Whitney",
-      "Paul Coeur"
+      { "firstName": "Gil", "lastName": "Cardinal" },
+      { "firstName": "Richard J.", "lastName": "Lewis" }
     ]
   },
   {
-    "department": "IT Technician",
+    "name": "Corporate Services",
     "employees": [
-      "Aiyana Littlebear",
-      "Inara Thunderbird",
-      "Kaya Runningbrook",
-      "Elara Firehawk",
-      "Siona Moonflower",
-      "Kaiyu Greywolf",
-      "Ayawamat Nightwind",
-      "Tala Braveheart",
-      "Iniko Stonebear",
-      "Onatah Redhawk"
+      { "firstName": "Randy", "lastName": "Bradshaw" },
+      { "firstName": "Tracey", "lastName": "Cook" },
+      { "firstName": "Lubomir", "lastName": "Mykytiuk" }
     ]
   },
   {
-    "department": "Information Technology",
-    "employees": ["Graham Greene", "Sandika Evergreen", "Jennifer Rodriguez"]
+    "name": "Facilities",
+    "employees": [
+      { "firstName": "Dakota", "lastName": "House" },
+      { "firstName": "Lori Lea", "lastName": "Okemah" },
+      { "firstName": "Renae", "lastName": "Morrisseau" },
+      { "firstName": "Rick", "lastName": "Belcourt" }
+    ]
+  },
+  {
+    "name": "Financial Services",
+    "employees": [
+      { "firstName": "Selina", "lastName": "Hanusa" },
+      { "firstName": "Buffy", "lastName": "Gaudry" },
+      { "firstName": "Shaneen Ann", "lastName": "Fox" },
+      { "firstName": "Allan", "lastName": "Little" },
+      { "firstName": "Danny", "lastName": "Rabbit" }
+    ]
+  },
+  {
+    "name": "Human Resources",
+    "employees": [
+      { "firstName": "Jesse Ed", "lastName": "Azure" },
+      { "firstName": "Stacy", "lastName": "Da Silva" },
+      { "firstName": "Vladimír", "lastName": "Valenta" },
+      { "firstName": "Samone", "lastName": "Sayeses-Whitney" },
+      { "firstName": "Paul", "lastName": "Coeur" }
+    ]
+  },
+  {
+    "name": "IT Technician",
+    "employees": [
+      { "firstName": "Aiyana", "lastName": "Littlebear" },
+      { "firstName": "Inara", "lastName": "Thunderbird" },
+      { "firstName": "Kaya", "lastName": "Runningbrook" },
+      { "firstName": "Elara", "lastName": "Firehawk" },
+      { "firstName": "Siona", "lastName": "Moonflower" },
+      { "firstName": "Kaiyu", "lastName": "Greywolf" },
+      { "firstName": "Ayawamat", "lastName": "Nightwind" },
+      { "firstName": "Tala", "lastName": "Braveheart" },
+      { "firstName": "Iniko", "lastName": "Stonebear" },
+      { "firstName": "Onatah", "lastName": "Redhawk" }
+    ]
+  },
+  {
+    "name": "Information Technology",
+    "employees": [
+      { "firstName": "Graham", "lastName": "Greene" },
+      { "firstName": "Sandika", "lastName": "Evergreen" },
+      { "firstName": "Jennifer", "lastName": "Rodriguez" }
+    ]
   }
 ]
