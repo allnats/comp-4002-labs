@@ -1,261 +1,187 @@
 [
   {
-    "Role": "CEO/Chair of Board",
-    "employee": {
-      "firstName": "Jo-Anne",
-      "lastName": "Sinclair"
-    }
+    "role": "CEO/Chair of Board",
+    "firstName": "Jo-Anne",
+    "lastName": "Sinclair"
   },
   {
-    "Role": "COO/VP Operations",
-    "employee": {
-      "firstName": "Jackson",
-      "lastName": "Smith"
-    }
+    "role": "COO/VP Operations",
+    "firstName": "Jackson",
+    "lastName": "Smith"
   },
   {
-    "Role": "CFO/VP Administration",
-    "employee": {
-      "firstName": "Susan",
-      "lastName": "Thomas"
-    }
+    "role": "CFO/VP Administration",
+    "firstName": "Susan",
+    "lastName": "Thomas"
   },
   {
-    "Role": "VP Client Services",
-    "employee": {
-      "firstName": "Richa",
-      "lastName": "Kaur"
-    }
+    "role": "VP Client Services",
+    "firstName": "Richa",
+    "lastName": "Kaur"
   },
   {
-    "Role": "CIO",
-    "employee": {
-      "firstName": "Josee",
-      "lastName": "Benjamin"
-    }
+    "role": "CIO",
+    "firstName": "Josee",
+    "lastName": "Benjamin"
   },
   {
-    "Role": "VP Sales & Marketing",
-    "employee": {
-      "firstName": "Vincent",
-      "lastName": "Grey"
-    }
+    "role": "VP Sales & Marketing",
+    "firstName": "Vincent",
+    "lastName": "Grey"
   },
   {
-    "Role": "Director Financial and Audit Svcs",
-    "employee": {
-      "firstName": "Rupa",
-      "lastName": "Kharki"
-    }
+    "role": "Director Financial and Audit Svcs",
+    "firstName": "Rupa",
+    "lastName": "Kharki"
   },
   {
-    "Role": "Director Human Resources",
-    "employee": {
-      "firstName": "Xun",
-      "lastName": "Kuang"
-    }
+    "role": "Director Human Resources",
+    "firstName": "Xun",
+    "lastName": "Kuang"
   },
   {
-    "Role": "Director Legal Services/General Counsel",
-    "employee": {
-      "firstName": "Stien",
-      "lastName": "Pedersen"
-    }
+    "role": "Director Legal Services/General Counsel",
+    "firstName": "Stien",
+    "lastName": "Pedersen"
   },
   {
-    "Role": "Director Information Technology",
-    "employee": {
-      "firstName": "Sandra",
-      "lastName": "Bear"
-    }
+    "role": "Director Information Technology",
+    "firstName": "Sandra",
+    "lastName": "Bear"
   },
   {
-    "Role": "Director Information Security and CISSO",
-    "employee": {
-      "firstName": "Gus",
-      "lastName": "Blue"
-    }
+    "role": "Director Information Security and CISSO",
+    "firstName": "Gus",
+    "lastName": "Blue"
   },
   {
-    "Role": "Director Accounting",
-    "employee": {
-      "firstName": "Sam",
-      "lastName": "Kong"
-    }
+    "role": "Director Accounting",
+    "firstName": "Sam",
+    "lastName": "Kong"
   },
   {
-    "Role": "Director Physical Security",
-    "employee": {
-      "firstName": "Valentine",
-      "lastName": "Smith"
-    }
+    "role": "Director Physical Security",
+    "firstName": "Valentine",
+    "lastName": "Smith"
   },
   {
-    "Role": "Director Facilities",
-    "employee": {
-      "firstName": "Mariya",
-      "lastName": "Kaperski"
-    }
+    "role": "Director Facilities",
+    "firstName": "Mariya",
+    "lastName": "Kaperski"
   },
   {
-    "Role": "Manager, Business Continuity and Disaster Recovery",
-    "employee": {
-      "firstName": "Abd al-Hamid",
-      "lastName": "Alami"
-    }
+    "role": "Manager, Business Continuity and Disaster Recovery",
+    "firstName": "Abd al-Hamid",
+    "lastName": "Alami"
   },
   {
-    "Role": "Manager, Internal Audit",
-    "employee": {
-      "firstName": "Victoria",
-      "lastName": "Gray"
-    }
+    "role": "Manager, Internal Audit",
+    "firstName": "Victoria",
+    "lastName": "Gray"
   },
   {
-    "Role": "Chief Architect",
-    "employee": {
-      "firstName": "Cheryl",
-      "lastName": "Guru"
-    }
+    "role": "Chief Architect",
+    "firstName": "Cheryl",
+    "lastName": "Guru"
   },
   {
-    "Role": "Manager, Security Architecture",
-    "employee": {
-      "firstName": "Jean",
-      "lastName": "Ngoy"
-    }
+    "role": "Manager, Security Architecture",
+    "firstName": "Jean",
+    "lastName": "Ngoy"
   },
   {
-    "Role": "Solution Architect, Online Banking",
-    "employee": {
-      "firstName": "Kris",
-      "lastName": "Gold"
-    }
+    "role": "Solution Architect, Online Banking",
+    "firstName": "Kris",
+    "lastName": "Gold"
   },
   {
-    "Role": "Manager, Application Solutions",
-    "employee": {
-      "firstName": "Isaac",
-      "lastName": "Smith"
-    }
+    "role": "Manager, Application Solutions",
+    "firstName": "Isaac",
+    "lastName": "Smith"
   },
   {
-    "Role": "Lead Developer, Online Banking",
-    "employee": {
-      "firstName": "Payton",
-      "lastName": "Frost"
-    }
+    "role": "Lead Developer, Online Banking",
+    "firstName": "Payton",
+    "lastName": "Frost"
   },
   {
-    "Role": "Manager, Operational Risk",
-    "employee": {
-      "firstName": "Samantha",
-      "lastName": "Nettle"
-    }
+    "role": "Manager, Operational Risk",
+    "firstName": "Samantha",
+    "lastName": "Nettle"
   },
   {
-    "Role": "Manager, Vendor Relations",
-    "employee": {
-      "firstName": "Yolanda",
-      "lastName": "Ferreira"
-    }
+    "role": "Manager, Vendor Relations",
+    "firstName": "Yolanda",
+    "lastName": "Ferreira"
   },
   {
-    "Role": "Manager, Purchasing",
-    "employee": {
-      "firstName": "Samir",
-      "lastName": "Hassan"
-    }
+    "role": "Manager, Purchasing",
+    "firstName": "Samir",
+    "lastName": "Hassan"
   },
   {
-    "Role": "Manager, Communications",
-    "employee": {
-      "firstName": "Yuna",
-      "lastName": "Aikawa"
-    }
+    "role": "Manager, Communications",
+    "firstName": "Yuna",
+    "lastName": "Aikawa"
   },
   {
-    "Role": "Manager Customer Experience and Community Eng.",
-    "employee": {
-      "firstName": "Jonathan",
-      "lastName": "Carberry"
-    }
+    "role": "Manager Customer Experience and Community Eng.",
+    "firstName": "Jonathan",
+    "lastName": "Carberry"
   },
   {
-    "Role": "Manager of Sales",
-    "employee": {
-      "firstName": "Roland",
-      "lastName": "Wei"
-    }
+    "role": "Manager of Sales",
+    "firstName": "Roland",
+    "lastName": "Wei"
   },
   {
-    "Role": "Manager, Marketing",
-    "employee": {
-      "firstName": "Pran",
-      "lastName": "Singh"
-    }
+    "role": "Manager, Marketing",
+    "firstName": "Pran",
+    "lastName": "Singh"
   },
   {
-    "Role": "Business Analyst, Online Banking",
-    "employee": {
-      "firstName": "Linda",
-      "lastName": "Analyst"
-    }
+    "role": "Business Analyst, Online Banking",
+    "firstName": "Linda",
+    "lastName": "Analyst"
   },
   {
-    "Role": "Manager, Contract Management",
-    "employee": {
-      "firstName": "Esra",
-      "lastName": "Sedge"
-    }
+    "role": "Manager, Contract Management",
+    "firstName": "Esra",
+    "lastName": "Sedge"
   },
   {
-    "Role": "Manager, Compliance Management",
-    "employee": {
-      "firstName": "Pranee",
-      "lastName": "Tan"
-    }
+    "role": "Manager, Compliance Management",
+    "firstName": "Pranee",
+    "lastName": "Tan"
   },
   {
-    "Role": "Manager IT End User Service Desk",
-    "employee": {
-      "firstName": "Karmen",
-      "lastName": "Spruce"
-    }
+    "role": "Manager IT End User Service Desk",
+    "firstName": "Karmen",
+    "lastName": "Spruce"
   },
   {
-    "Role": "Manager IT End User Computing",
-    "employee": {
-      "firstName": "Haydar",
-      "lastName": "Katirci"
-    }
+    "role": "Manager IT End User Computing",
+    "firstName": "Haydar",
+    "lastName": "Katirci"
   },
   {
-    "Role": "Manager IT Telecom and Infrastructure",
-    "employee": {
-      "firstName": "Jill",
-      "lastName": "Harkness"
-    }
+    "role": "Manager IT Telecom and Infrastructure",
+    "firstName": "Jill",
+    "lastName": "Harkness"
   },
   {
-    "Role": "Manager, Data Center and Hosting Services",
-    "employee": {
-      "firstName": "Tim",
-      "lastName": "Morrison"
-    }
+    "role": "Manager, Data Center and Hosting Services",
+    "firstName": "Tim",
+    "lastName": "Morrison"
   },
   {
-    "Role": "Manager of IT Risk Management",
-    "employee": {
-      "firstName": "Aleksandr",
-      "lastName": "Milosevic"
-    }
+    "role": "Manager of IT Risk Management",
+    "firstName": "Aleksandr",
+    "lastName": "Milosevic"
   },
   {
-    "Role": "Manager IT, project management office",
-    "employee": {
-      "firstName": "Jim",
-      "lastName": "Wingnut"
-    }
+    "role": "Manager IT, project management office",
+    "firstName": "Jim",
+    "lastName": "Wingnut"
   }
 ]
