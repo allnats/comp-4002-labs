@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
 
 import Layout from "./components/common/layout/Layout";
-import EmployeeDirectory from "./components/landing/EmployeeDirectory";
+import EmployeeDirectory from "./components/pages/EmployeeDirectory";
 
 function App() {
   return (
