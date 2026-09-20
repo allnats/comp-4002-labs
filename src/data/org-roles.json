@@ -1,0 +1,261 @@
+[
+  {
+    "Role": "CEO/Chair of Board",
+    "employee": {
+      "firstName": "Jo-Anne",
+      "lastName": "Sinclair"
+    }
+  },
+  {
+    "Role": "COO/VP Operations",
+    "employee": {
+      "firstName": "Jackson",
+      "lastName": "Smith"
+    }
+  },
+  {
+    "Role": "CFO/VP Administration",
+    "employee": {
+      "firstName": "Susan",
+      "lastName": "Thomas"
+    }
+  },
+  {
+    "Role": "VP Client Services",
+    "employee": {
+      "firstName": "Richa",
+      "lastName": "Kaur"
+    }
+  },
+  {
+    "Role": "CIO",
+    "employee": {
+      "firstName": "Josee",
+      "lastName": "Benjamin"
+    }
+  },
+  {
+    "Role": "VP Sales & Marketing",
+    "employee": {
+      "firstName": "Vincent",
+      "lastName": "Grey"
+    }
+  },
+  {
+    "Role": "Director Financial and Audit Svcs",
+    "employee": {
+      "firstName": "Rupa",
+      "lastName": "Kharki"
+    }
+  },
+  {
+    "Role": "Director Human Resources",
+    "employee": {
+      "firstName": "Xun",
+      "lastName": "Kuang"
+    }
+  },
+  {
+    "Role": "Director Legal Services/General Counsel",
+    "employee": {
+      "firstName": "Stien",
+      "lastName": "Pedersen"
+    }
+  },
+  {
+    "Role": "Director Information Technology",
+    "employee": {
+      "firstName": "Sandra",
+      "lastName": "Bear"
+    }
+  },
+  {
+    "Role": "Director Information Security and CISSO",
+    "employee": {
+      "firstName": "Gus",
+      "lastName": "Blue"
+    }
+  },
+  {
+    "Role": "Director Accounting",
+    "employee": {
+      "firstName": "Sam",
+      "lastName": "Kong"
+    }
+  },
+  {
+    "Role": "Director Physical Security",
+    "employee": {
+      "firstName": "Valentine",
+      "lastName": "Smith"
+    }
+  },
+  {
+    "Role": "Director Facilities",
+    "employee": {
+      "firstName": "Mariya",
+      "lastName": "Kaperski"
+    }
+  },
+  {
+    "Role": "Manager, Business Continuity and Disaster Recovery",
+    "employee": {
+      "firstName": "Abd al-Hamid",
+      "lastName": "Alami"
+    }
+  },
+  {
+    "Role": "Manager, Internal Audit",
+    "employee": {
+      "firstName": "Victoria",
+      "lastName": "Gray"
+    }
+  },
+  {
+    "Role": "Chief Architect",
+    "employee": {
+      "firstName": "Cheryl",
+      "lastName": "Guru"
+    }
+  },
+  {
+    "Role": "Manager, Security Architecture",
+    "employee": {
+      "firstName": "Jean",
+      "lastName": "Ngoy"
+    }
+  },
+  {
+    "Role": "Solution Architect, Online Banking",
+    "employee": {
+      "firstName": "Kris",
+      "lastName": "Gold"
+    }
+  },
+  {
+    "Role": "Manager, Application Solutions",
+    "employee": {
+      "firstName": "Isaac",
+      "lastName": "Smith"
+    }
+  },
+  {
+    "Role": "Lead Developer, Online Banking",
+    "employee": {
+      "firstName": "Payton",
+      "lastName": "Frost"
+    }
+  },
+  {
+    "Role": "Manager, Operational Risk",
+    "employee": {
+      "firstName": "Samantha",
+      "lastName": "Nettle"
+    }
+  },
+  {
+    "Role": "Manager, Vendor Relations",
+    "employee": {
+      "firstName": "Yolanda",
+      "lastName": "Ferreira"
+    }
+  },
+  {
+    "Role": "Manager, Purchasing",
+    "employee": {
+      "firstName": "Samir",
+      "lastName": "Hassan"
+    }
+  },
+  {
+    "Role": "Manager, Communications",
+    "employee": {
+      "firstName": "Yuna",
+      "lastName": "Aikawa"
+    }
+  },
+  {
+    "Role": "Manager Customer Experience and Community Eng.",
+    "employee": {
+      "firstName": "Jonathan",
+      "lastName": "Carberry"
+    }
+  },
+  {
+    "Role": "Manager of Sales",
+    "employee": {
+      "firstName": "Roland",
+      "lastName": "Wei"
+    }
+  },
+  {
+    "Role": "Manager, Marketing",
+    "employee": {
+      "firstName": "Pran",
+      "lastName": "Singh"
+    }
+  },
+  {
+    "Role": "Business Analyst, Online Banking",
+    "employee": {
+      "firstName": "Linda",
+      "lastName": "Analyst"
+    }
+  },
+  {
+    "Role": "Manager, Contract Management",
+    "employee": {
+      "firstName": "Esra",
+      "lastName": "Sedge"
+    }
+  },
+  {
+    "Role": "Manager, Compliance Management",
+    "employee": {
+      "firstName": "Pranee",
+      "lastName": "Tan"
+    }
+  },
+  {
+    "Role": "Manager IT End User Service Desk",
+    "employee": {
+      "firstName": "Karmen",
+      "lastName": "Spruce"
+    }
+  },
+  {
+    "Role": "Manager IT End User Computing",
+    "employee": {
+      "firstName": "Haydar",
+      "lastName": "Katirci"
+    }
+  },
+  {
+    "Role": "Manager IT Telecom and Infrastructure",
+    "employee": {
+      "firstName": "Jill",
+      "lastName": "Harkness"
+    }
+  },
+  {
+    "Role": "Manager, Data Center and Hosting Services",
+    "employee": {
+      "firstName": "Tim",
+      "lastName": "Morrison"
+    }
+  },
+  {
+    "Role": "Manager of IT Risk Management",
+    "employee": {
+      "firstName": "Aleksandr",
+      "lastName": "Milosevic"
+    }
+  },
+  {
+    "Role": "Manager IT, project management office",
+    "employee": {
+      "firstName": "Jim",
+      "lastName": "Wingnut"
+    }
+  }
+]
