@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Organization />} />
-
           <Route index path="/organization" element={<Organization />} />
           <Route index path="/employees" element={<EmployeeDirectory />} />
         </Route>
