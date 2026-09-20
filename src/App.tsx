@@ -1,13 +1,16 @@
+import { Routes, Route } from "react-router";
+
+import Layout from "./components/common/layout/Layout";
 import EmployeeDirectory from "./components/landing/EmployeeDirectory";
-import Header from "./components/common/header/Header";
-import Footer from "./components/common/footer/Footer";
 
 function App() {
   return (
     <>
-      <Header />
-      <EmployeeDirectory />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<EmployeeDirectory />} />
+        </Route>
+      </Routes>
     </>
   );
 }
