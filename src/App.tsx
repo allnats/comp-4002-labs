@@ -1,13 +1,19 @@
-import EmployeeDirectory from "./components/landing/EmployeeDirectory";
-import Header from "./components/common/header/Header";
-import Footer from "./components/common/footer/Footer";
+import { Routes, Route } from "react-router";
+
+import Layout from "./components/common/layout/Layout";
+import EmployeeDirectory from "./components/pages/EmployeeDirectory";
+import Organization from "./components/pages/Organization";
 
 function App() {
   return (
     <>
-      <Header />
-      <EmployeeDirectory />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Organization />} />
+          <Route index path="/organization" element={<Organization />} />
+          <Route index path="/employees" element={<EmployeeDirectory />} />
+        </Route>
+      </Routes>
     </>
   );
 }

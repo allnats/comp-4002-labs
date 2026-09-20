@@ -1,8 +1,10 @@
-import { useState } from "react";
-import EmployeeForm from "../EmployeeForm";
-import data from "../../data/employee-dept.json";
 import type Department from "../../models/department";
 import type Employee from "../../models/employee";
+import data from "../../data/employee-dept.json";
+
+import { useState } from "react";
+import Header from "../common/header/Header";
+import EmployeeForm from "../EmployeeForm";
 import "./EmployeeDirectory.css";
 
 const employeeDeptData: Department[] = data;
@@ -15,6 +17,10 @@ export default function EmployeeDirectory() {
 
   return (
     <>
+      <Header
+        title="Employee Directory"
+        greeting="List of employees by their departments"
+      />
       <ListDepartments data={employeeDepartment} />
       <EmployeeForm
         departmentList={departmentList}
