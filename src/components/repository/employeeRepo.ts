@@ -1,0 +1,36 @@
+import type Department from "../../models/department";
+import type Employee from "../../models/employee";
+import { mockDepartmentData } from "./mockDepartmentData";
+
+//TODO: Maybe wrap the data access in a try-catch block to emulate a real repo.
+
+/**
+ * Get all Department objects
+ * @returns Department[] - List of Departments from the mock.
+ */
+function getAllDepartments(): Department[] {
+  return mockDepartmentData;
+}
+
+/**
+ * Gets all the existing department names
+ * @returns string[] - list of department names
+ */
+function getDeparmentNames(): string[] {
+  return mockDepartmentData.map((d) => d.name);
+}
+
+/**
+ * Gets all the employees form a specific department
+ * @param department string
+ * @returns an array of Employees
+ */
+function getDepartmentEmployees(department: string): Employee[] | undefined {
+  const targetDepartment = mockDepartmentData.find(
+    (d) => d.name === department,
+  );
+
+  return targetDepartment?.employees;
+}
+
+export { getAllDepartments, getDeparmentNames, getDepartmentEmployees };
