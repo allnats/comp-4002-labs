@@ -18,7 +18,7 @@ function EmployeeForm({
     setLastName,
     setDepartment,
     handleFormSubmit,
-  } = useFormInput(departmentList, updateEmployeeDept);
+  } = useFormInput(updateEmployeeDept);
 
   return (
     <form onSubmit={handleFormSubmit}>

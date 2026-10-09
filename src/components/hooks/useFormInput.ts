@@ -9,7 +9,6 @@ import {
 } from "../services/employeeService";
 
 function useFormInput(
-  departmentList: string[],
   updateEmployeeDept: React.Dispatch<React.SetStateAction<Department[]>>,
 ) {
   const [firstName, setFirstName] = useState("");
