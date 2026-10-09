@@ -8,7 +8,7 @@ type validationResponse = {
 };
 
 function validateDeparment(department: string): validationResponse {
-  const departmentList = getDeparmentNames();
+  const departmentList = getDepartmentNames();
   if (!departmentList.includes(department)) {
     return { status: false, message: "Department doesn't exist" };
   }
@@ -27,7 +27,7 @@ function validateFirstName(firstName: string): validationResponse {
   return { status: true };
 }
 
-function getDeparmentNames(): string[] {
+function getDepartmentNames(): string[] {
   return employeeRepo.getDeparmentNames();
 }
 
@@ -51,6 +51,8 @@ const employeeService = {
   validateDeparment,
   validateFirstName,
   createEmployee,
+  getAllDepartments,
+  getDepartmentNames,
 };
 
 export default employeeService;
@@ -61,7 +63,7 @@ export {
   validateDeparment,
   validateFirstName,
   createEmployee,
-  getDeparmentNames,
+  getDepartmentNames,
   getAllDepartments,
   getDepartmentEmployees,
 };
