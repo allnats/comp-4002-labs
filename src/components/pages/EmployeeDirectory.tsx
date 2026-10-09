@@ -1,19 +1,16 @@
 import type Department from "../../models/department";
 import type Employee from "../../models/employee";
-import data from "../../data/employee-dept.json";
 
-import { useState } from "react";
+import useEmployee from "../hooks/useEmployee";
 import Header from "../common/header/Header";
 import EmployeeForm from "../EmployeeForm";
 import "./EmployeeDirectory.css";
 
-const employeeDeptData: Department[] = data;
-
 export default function EmployeeDirectory() {
-  const [employeeDepartment, setEmployeeDepartment] =
-    useState(employeeDeptData);
+  const { employeeDepartment, getDepartmentNames, setEmployeeDepartment } =
+    useEmployee();
 
-  const departmentList: string[] = employeeDepartment.map((d) => d.name);
+  const departmentList: string[] = getDepartmentNames();
 
   return (
     <>
