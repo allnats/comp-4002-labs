@@ -1,3 +1,5 @@
+import * as employeeRepo from "../repository/employeeRepo";
+
 type validationResponse = {
   status: boolean;
   message?: string;
@@ -25,15 +27,26 @@ function validateFirstName(firstName: string): validationResponse {
   return { status: true };
 }
 
+function createEmployee(
+  firstName: string,
+  lastname: string | undefined,
+  department: string,
+): void {
+  employeeRepo.createEmployee(firstName, lastname, department);
+}
+
 const employeeService = {
   validateDeparment,
   validateFirstName,
+  createEmployee,
 };
 
 export default employeeService;
+
 export {
+  type validationResponse,
   employeeService,
   validateDeparment,
   validateFirstName,
-  type validationResponse,
+  createEmployee,
 };

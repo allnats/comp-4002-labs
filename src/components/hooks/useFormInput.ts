@@ -2,6 +2,7 @@ import type Department from "../../models/department";
 
 import { useState } from "react";
 import type { SubmitEvent } from "react";
+
 import {
   employeeService,
   type validationResponse,
@@ -39,6 +40,7 @@ function useFormInput(
       return;
     }
 
+    // This is the block of code to update employees pre lab 3.1
     updateEmployeeDept((currList) =>
       currList.map((d) => {
         if (d.name === department) {
@@ -47,6 +49,9 @@ function useFormInput(
         return d;
       }),
     );
+
+    // This this the block of code to update employees in lab 3.1 and after
+    employeeService.createEmployee(firstName, lastName, department);
     clearFields();
   }
 
