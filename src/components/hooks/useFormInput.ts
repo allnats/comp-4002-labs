@@ -3,15 +3,10 @@ import type Department from "../../models/department";
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 
-type useFormInputProps = {
-  departmentList: string[];
-  updateEmployeeDept: React.Dispatch<React.SetStateAction<Department[]>>;
-};
-
-function useFormInput({
-  departmentList,
-  updateEmployeeDept,
-}: useFormInputProps) {
+function useFormInput(
+  departmentList: string[],
+  updateEmployeeDept: React.Dispatch<React.SetStateAction<Department[]>>,
+) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [department, setDepartment] = useState("");
@@ -46,6 +41,9 @@ function useFormInput({
   }
 
   return {
+    firstName,
+    lastName,
+    department,
     setFirstName,
     setLastName,
     setDepartment,
