@@ -1,3 +1,5 @@
+import type Department from "../../models/department";
+import type Employee from "../../models/employee";
 import * as employeeRepo from "../repository/employeeRepo";
 
 type validationResponse = {
@@ -27,6 +29,18 @@ function validateFirstName(firstName: string): validationResponse {
   return { status: true };
 }
 
+function getDeparmentNames(): string[] {
+  return employeeRepo.getDeparmentNames();
+}
+
+function getAllDepartments(): Department[] {
+  return employeeRepo.getAllDepartments();
+}
+
+function getDepartmentEmployees(department: string): Employee[] {
+  return employeeRepo.getDepartmentEmployees(department);
+}
+
 function createEmployee(
   firstName: string,
   lastname: string | undefined,
@@ -49,4 +63,7 @@ export {
   validateDeparment,
   validateFirstName,
   createEmployee,
+  getDeparmentNames,
+  getAllDepartments,
+  getDepartmentEmployees,
 };

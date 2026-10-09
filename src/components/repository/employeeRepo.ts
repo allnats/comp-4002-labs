@@ -25,12 +25,14 @@ function getDeparmentNames(): string[] {
  * @param department string
  * @returns an array of Employees
  */
-function getDepartmentEmployees(department: string): Employee[] | undefined {
+function getDepartmentEmployees(department: string): Employee[] {
   const targetDepartment = mockDepartmentData.find(
     (d) => d.name === department,
   );
 
-  return targetDepartment?.employees;
+  if (!targetDepartment) return [];
+
+  return targetDepartment.employees;
 }
 
 /**
