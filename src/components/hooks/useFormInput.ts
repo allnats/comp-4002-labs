@@ -2,6 +2,10 @@ import type Department from "../../models/department";
 
 import { useState } from "react";
 import type { SubmitEvent } from "react";
+import {
+  employeeService,
+  type validationResponse,
+} from "../services/employeeService";
 
 function useFormInput(
   departmentList: string[],
@@ -22,10 +26,16 @@ function useFormInput(
     console.log(`${firstName} ${lastName}`);
     console.log(`Department: ${department}`);
 
-    // Validation here
-    if (firstName.length < 3 || !departmentList.includes(department)) {
-      alert("Invalid form");
-      clearFields();
+    /** Call Service here to validate the form */
+    const validateForm: validationResponse[] = [
+      employeeService.validateFirstName(firstName),
+      employeeService.validateDeparment(department, departmentList),
+    ];
+
+    // Check the collected validation errors
+    if (validateForm.some((validation) => !validation.status)) {
+      const error = validateForm.find((validation) => !validation.status);
+      alert(error?.message);
       return;
     }
 
