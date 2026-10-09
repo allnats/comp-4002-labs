@@ -33,4 +33,35 @@ function getDepartmentEmployees(department: string): Employee[] | undefined {
   return targetDepartment?.employees;
 }
 
-export { getAllDepartments, getDeparmentNames, getDepartmentEmployees };
+/**
+ *
+ * Creates a new Employee
+ *
+ * @param firstName first name of the new employee
+ * @param lastName last name of the new employee
+ * @param department where the employee will work
+ * @returns
+ */
+function createEmployee(
+  firstName: string,
+  lastName: string | undefined,
+  department: string,
+) {
+  const targetDepartment = getDepartmentEmployees(department);
+
+  if (!targetDepartment) {
+    console.error(
+      `Hey! Can't find ${department} for new employee ${firstName}`,
+    );
+    return;
+  }
+
+  targetDepartment.push({ firstName, lastName });
+}
+
+export {
+  getAllDepartments,
+  getDeparmentNames,
+  getDepartmentEmployees,
+  createEmployee,
+};
