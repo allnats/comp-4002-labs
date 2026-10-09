@@ -30,7 +30,7 @@ function useFormInput(
     /** Call Service here to validate the form */
     const validateForm: validationResponse[] = [
       employeeService.validateFirstName(firstName),
-      employeeService.validateDeparment(department, departmentList),
+      employeeService.validateDeparment(department),
     ];
 
     // Check the collected validation errors

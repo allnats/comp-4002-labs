@@ -7,10 +7,8 @@ type validationResponse = {
   message?: string;
 };
 
-function validateDeparment(
-  department: string,
-  departmentList: string[],
-): validationResponse {
+function validateDeparment(department: string): validationResponse {
+  const departmentList = getDeparmentNames();
   if (!departmentList.includes(department)) {
     return { status: false, message: "Department doesn't exist" };
   }
