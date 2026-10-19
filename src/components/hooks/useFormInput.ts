@@ -21,7 +21,7 @@ function useFormInput(
     setDepartment("");
   }
 
-  function handleFormSubmit(e: SubmitEvent<HTMLFormElement>) {
+  async function handleFormSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(`${firstName} ${lastName}`);
     console.log(`Department: ${department}`);
@@ -29,7 +29,7 @@ function useFormInput(
     /** Call Service here to validate the form */
     const validateForm: validationResponse[] = [
       employeeService.validateFirstName(firstName),
-      employeeService.validateDeparment(department),
+      await employeeService.validateDeparment(department),
     ];
 
     // Check the collected validation errors

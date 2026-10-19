@@ -1,5 +1,3 @@
-import type Department from "../../models/department";
-import type Employee from "../../models/employee";
 import * as employeeRepo from "../repository/employeeRepo";
 
 type validationResponse = {
@@ -7,8 +5,8 @@ type validationResponse = {
   message?: string;
 };
 
-function validateDeparment(department: string): validationResponse {
-  const departmentList = getDepartmentNames();
+async function validateDeparment(department: string) {
+  const departmentList = await getDepartmentNames();
   if (!departmentList.includes(department)) {
     return { status: false, message: "Department doesn't exist" };
   }
@@ -27,15 +25,15 @@ function validateFirstName(firstName: string): validationResponse {
   return { status: true };
 }
 
-function getDepartmentNames(): string[] {
+async function getDepartmentNames() {
   return employeeRepo.getDeparmentNames();
 }
 
-function getAllDepartments(): Department[] {
+async function getAllDepartments() {
   return employeeRepo.getAllDepartments();
 }
 
-function getDepartmentEmployees(department: string): Employee[] {
+async function getDepartmentEmployees(department: string) {
   return employeeRepo.getDepartmentEmployees(department);
 }
 
