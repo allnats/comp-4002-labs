@@ -3,6 +3,7 @@ import data from "./../../data/org-roles.json";
 
 import "./Organization.css";
 import Header from "../common/header/Header";
+import OrganizationForm from "../OrganizationForm";
 const organizationData: Role[] = data;
 
 function Organization() {
@@ -28,6 +29,7 @@ function Organization() {
           </tbody>
         </table>
       </div>
+      <OrganizationForm />
     </>
   );
 }
