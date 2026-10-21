@@ -1,4 +1,5 @@
 import mockOrganizationData from "./mockOrganizationData";
+import type Role from "../../models/role";
 
 export async function getAllRoles() {
   return mockOrganizationData;
@@ -8,12 +9,9 @@ export async function getRoleNames() {
   return mockOrganizationData.map((r) => r.role);
 }
 
-export async function createRole(
-  role: string,
-  firstName: string,
-  lastName: string,
-) {
+export async function createRole(newRole: Role) {
   try {
+    const { role, firstName, lastName } = newRole;
     const allRoles = await getAllRoles();
 
     allRoles.push({ role, firstName, lastName });
