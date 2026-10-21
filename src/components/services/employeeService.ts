@@ -6,23 +6,22 @@ type validationResponse = {
 };
 
 async function validateDeparment(department: string) {
+  const errorMessages: string[] = [];
   const departmentList = await getDepartmentNames();
   if (!departmentList.includes(department)) {
-    return { status: false, message: "Department doesn't exist" };
+    errorMessages.push("Department doesn't exist");
   }
 
-  return { status: true };
+  return errorMessages;
 }
 
-function validateFirstName(firstName: string): validationResponse {
+async function validateFirstName(firstName: string) {
+  const errorMessages: string[] = [];
   if (firstName.length < 3) {
-    return {
-      status: false,
-      message: "Firstname must have at least 3 characters",
-    };
+    errorMessages.push("Firstname must have at least 3 characters.");
   }
 
-  return { status: true };
+  return errorMessages;
 }
 
 async function getDepartmentNames() {
