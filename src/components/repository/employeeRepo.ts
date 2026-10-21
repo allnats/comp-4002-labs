@@ -1,5 +1,3 @@
-import type Department from "../../models/department";
-import type Employee from "../../models/employee";
 import { mockDepartmentData } from "./mockDepartmentData";
 
 //TODO: Maybe wrap the data access in a try-catch block to emulate a real repo.
@@ -8,7 +6,7 @@ import { mockDepartmentData } from "./mockDepartmentData";
  * Get all Department objects
  * @returns Department[] - List of Departments from the mock.
  */
-function getAllDepartments(): Department[] {
+async function getAllDepartments() {
   return mockDepartmentData;
 }
 
@@ -16,7 +14,7 @@ function getAllDepartments(): Department[] {
  * Gets all the existing department names
  * @returns string[] - list of department names
  */
-function getDeparmentNames(): string[] {
+async function getDeparmentNames() {
   return mockDepartmentData.map((d) => d.name);
 }
 
@@ -25,7 +23,7 @@ function getDeparmentNames(): string[] {
  * @param department string
  * @returns an array of Employees
  */
-function getDepartmentEmployees(department: string): Employee[] {
+async function getDepartmentEmployees(department: string) {
   const targetDepartment = mockDepartmentData.find(
     (d) => d.name === department,
   );
@@ -44,21 +42,31 @@ function getDepartmentEmployees(department: string): Employee[] {
  * @param department where the employee will work
  * @returns
  */
-function createEmployee(
+async function createEmployee(
   firstName: string,
   lastName: string | undefined,
   department: string,
 ) {
-  const targetDepartment = getDepartmentEmployees(department);
+  try {
+    const targetDepartment = await getDepartmentEmployees(department);
 
-  if (!targetDepartment) {
-    console.error(
-      `Hey! Can't find ${department} for new employee ${firstName}`,
-    );
-    return;
+    if (!targetDepartment) {
+      throw new Error(
+        `Hey! Can't find ${department} for new employee ${firstName}`,
+      );
+      return;
+    }
+
+    targetDepartment.push({ firstName, lastName });
+  } catch (err) {
+    if (err instanceof Error) {
+      throw err;
+    } else {
+      throw new Error("RepositoryError: Failed to create an employee.", {
+        cause: err,
+      });
+    }
   }
-
-  targetDepartment.push({ firstName, lastName });
 }
 
 export {
