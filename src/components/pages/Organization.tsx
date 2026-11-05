@@ -1,11 +1,11 @@
-import type Role from "../../models/role";
-import data from "./../../data/org-roles.json";
-
 import "./Organization.css";
 import Header from "../common/header/Header";
-const organizationData: Role[] = data;
+import OrganizationForm from "../OrganizationForm";
+import useOrganization from "../hooks/useOrganization";
 
 function Organization() {
+  const { roles, createNewRole } = useOrganization();
+
   return (
     <>
       <Header title="Organization" greeting="Leadership and Management" />
@@ -19,7 +19,7 @@ function Organization() {
           </thead>
 
           <tbody>
-            {organizationData.map((data) => (
+            {roles.map((data) => (
               <tr key={`${data.firstName}${data.lastName}`}>
                 <td>{data.role}</td>
                 <td>{`${data.firstName} ${data.lastName}`}</td>
@@ -28,6 +28,7 @@ function Organization() {
           </tbody>
         </table>
       </div>
+      <OrganizationForm createNewRole={createNewRole} />
     </>
   );
 }

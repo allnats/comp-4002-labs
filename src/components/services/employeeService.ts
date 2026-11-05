@@ -1,5 +1,3 @@
-import type Department from "../../models/department";
-import type Employee from "../../models/employee";
 import * as employeeRepo from "../repository/employeeRepo";
 
 type validationResponse = {
@@ -7,35 +5,34 @@ type validationResponse = {
   message?: string;
 };
 
-function validateDeparment(department: string): validationResponse {
-  const departmentList = getDepartmentNames();
+async function validateDeparment(department: string) {
+  const errorMessages: string[] = [];
+  const departmentList = await getDepartmentNames();
   if (!departmentList.includes(department)) {
-    return { status: false, message: "Department doesn't exist" };
+    errorMessages.push("Department doesn't exist");
   }
 
-  return { status: true };
+  return errorMessages;
 }
 
-function validateFirstName(firstName: string): validationResponse {
+async function validateFirstName(firstName: string) {
+  const errorMessages: string[] = [];
   if (firstName.length < 3) {
-    return {
-      status: false,
-      message: "Firstname must have at least 3 characters",
-    };
+    errorMessages.push("Firstname must have at least 3 characters.");
   }
 
-  return { status: true };
+  return errorMessages;
 }
 
-function getDepartmentNames(): string[] {
+async function getDepartmentNames() {
   return employeeRepo.getDeparmentNames();
 }
 
-function getAllDepartments(): Department[] {
+async function getAllDepartments() {
   return employeeRepo.getAllDepartments();
 }
 
-function getDepartmentEmployees(department: string): Employee[] {
+async function getDepartmentEmployees(department: string) {
   return employeeRepo.getDepartmentEmployees(department);
 }
 

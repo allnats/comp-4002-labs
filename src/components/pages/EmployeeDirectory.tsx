@@ -7,10 +7,12 @@ import EmployeeForm from "../EmployeeForm";
 import "./EmployeeDirectory.css";
 
 export default function EmployeeDirectory() {
-  const { employeeDepartment, getDepartmentNames, setEmployeeDepartment } =
+  const { employeeDepartment, setEmployeeDepartment, isLoading, hasError } =
     useEmployee();
 
-  const departmentList: string[] = getDepartmentNames();
+  const departmentList: string[] = employeeDepartment.length
+    ? employeeDepartment.map((d) => d.name)
+    : [];
 
   return (
     <>
@@ -18,7 +20,14 @@ export default function EmployeeDirectory() {
         title="Employee Directory"
         greeting="List of employees by their departments"
       />
-      <ListDepartments data={employeeDepartment} />
+
+      {!hasError.status && !isLoading && (
+        <ListDepartments data={employeeDepartment} />
+      )}
+
+      {hasError.status && <p>Error fetching employee departments</p>}
+      {isLoading && <p>Fetching employee data...</p>}
+
       <EmployeeForm
         departmentList={departmentList}
         updateEmployeeDept={setEmployeeDepartment}
