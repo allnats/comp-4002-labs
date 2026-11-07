@@ -1,5 +1,5 @@
 import mockOrganizationData from "./mockOrganizationData";
-import type Role from "../../models/role";
+import type Role from "@shared/types/role";
 
 export async function getAllRoles() {
   return mockOrganizationData;

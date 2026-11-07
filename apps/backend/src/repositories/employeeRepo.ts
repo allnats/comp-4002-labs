@@ -50,7 +50,7 @@ async function createEmployee(
   try {
     const targetDepartment = await getDepartmentEmployees(department);
 
-    if (!targetDepartment) {
+    if (targetDepartment.length === 0) {
       throw new Error(
         `Hey! Can't find ${department} for new employee ${firstName}`,
       );
