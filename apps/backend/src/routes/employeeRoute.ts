@@ -9,7 +9,7 @@ export const employeeRoutes = Router();
 
 employeeRoutes.get("/", employeeController.getAllDepartments);
 
-employeeRoutes.get("/departments", employeeController.getAllDepartments);
+employeeRoutes.get("/departments", employeeController.getDeparmentNames);
 
 employeeRoutes.get(
   "/department/:department",
