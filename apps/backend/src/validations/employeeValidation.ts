@@ -29,7 +29,7 @@ export const validateGetDepartmentEmployees: RequestHandler = (
   res,
   next,
 ) => {
-  const result = z.string().safeParse(req.params.department);
+  const result = z.string().trim().safeParse(req.params.department);
 
   if (!result.success) {
     res.status(400).json({
