@@ -5,14 +5,12 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
+    "rootDir": "./src",
     "outDir": "./dist",
-    "baseUrl": "./",
     "sourceMap": true,
     "lib": ["ESNext"],
-    "paths": {
-      "*": ["*"]
-    }
+    "types": ["node"]
   },
-  "include": ["src/**/*", "tests/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
