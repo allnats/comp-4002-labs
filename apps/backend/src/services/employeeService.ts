@@ -12,12 +12,12 @@ async function getDepartmentEmployees(department: string) {
   return employeeRepo.getDepartmentEmployees(department);
 }
 
-function createEmployee(
+async function createEmployee(
   firstName: string,
   lastname: string | undefined,
   department: string,
-): void {
-  employeeRepo.createEmployee(firstName, lastname, department);
+): Promise<void> {
+  await employeeRepo.createEmployee(firstName, lastname, department);
 }
 
 const employeeService = {
