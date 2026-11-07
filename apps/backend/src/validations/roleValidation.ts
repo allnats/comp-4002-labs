@@ -9,7 +9,7 @@ const createRoleSchema = z
   })
   .strict();
 
-export const validateCreateEmployee: RequestHandler = (req, res, next) => {
+export const validateCreateRole: RequestHandler = (req, res, next) => {
   const result = createRoleSchema.safeParse(req.body);
 
   if (!result.success) {

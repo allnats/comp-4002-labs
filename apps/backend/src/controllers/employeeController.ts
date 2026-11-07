@@ -28,6 +28,20 @@ export async function getAllDepartments(
   }
 }
 
+export async function getDepartmentEmployees(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    const department = req.params.department as string;
+    const employees = await employeeService.getDepartmentEmployees(department);
+    res.status(200).json(employees);
+  } catch (err) {
+    next(err);
+  }
+}
+
 export async function createEmployee(
   req: Request,
   res: Response,
