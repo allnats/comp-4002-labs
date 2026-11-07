@@ -1,0 +1,25 @@
+import type { RequestHandler } from "express";
+import z from "zod";
+
+const createRoleSchema = z
+  .object({
+    firstName: z.string().trim().min(1),
+    lastName: z.string().trim().min(1).optional(),
+    role: z.string().trim().min(1),
+  })
+  .strict();
+
+export const validateCreateEmployee: RequestHandler = (req, res, next) => {
+  const result = createRoleSchema.safeParse(req.body);
+
+  if (!result.success) {
+    res.status(400).json({
+      error: "Invalid Role data",
+      details: z.flattenError(result.error),
+    });
+    return;
+  }
+
+  req.body = result.data;
+  next();
+};
