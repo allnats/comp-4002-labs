@@ -1,13 +1,26 @@
-import { mockDepartmentData } from "./mockDepartmentData";
+import Department from "../../models/department";
+import Employee from "../../models/employee";
+
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const endpoint = `${baseUrl}/api/employees`;
 
 //TODO: Maybe wrap the data access in a try-catch block to emulate a real repo.
+
+async function readJson<T>(response: Response): Promise<T> {
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+
+  return (await response.json()) as T;
+}
 
 /**
  * Get all Department objects
  * @returns Department[] - List of Departments from the mock.
  */
 async function getAllDepartments() {
-  return mockDepartmentData;
+  const response = await fetch(endpoint);
+  return await readJson<Department[]>(response);
 }
 
 /**
@@ -15,7 +28,8 @@ async function getAllDepartments() {
  * @returns string[] - list of department names
  */
 async function getDeparmentNames() {
-  return mockDepartmentData.map((d) => d.name);
+  const response = await fetch(`${endpoint}/departments`);
+  return await readJson<string[]>(response);
 }
 
 /**
@@ -24,13 +38,8 @@ async function getDeparmentNames() {
  * @returns an array of Employees
  */
 async function getDepartmentEmployees(department: string) {
-  const targetDepartment = mockDepartmentData.find(
-    (d) => d.name === department,
-  );
-
-  if (!targetDepartment) return [];
-
-  return targetDepartment.employees;
+  const response = await fetch(`${endpoint}/department/${department}`);
+  return await readJson<Employee[]>(response);
 }
 
 /**
@@ -48,16 +57,15 @@ async function createEmployee(
   department: string,
 ) {
   try {
-    const targetDepartment = await getDepartmentEmployees(department);
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ firstName, lastName, department }),
+    });
 
-    if (!targetDepartment) {
-      throw new Error(
-        `Hey! Can't find ${department} for new employee ${firstName}`,
-      );
-      return;
-    }
-
-    targetDepartment.push({ firstName, lastName });
+    await readJson<void>(response);
   } catch (err) {
     if (err instanceof Error) {
       throw err;
