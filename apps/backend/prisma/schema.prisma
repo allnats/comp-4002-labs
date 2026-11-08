@@ -33,5 +33,5 @@ model Roles {
   name          String      @unique
 
   employee      Employees   @relation(fields: [employee_id], references: [id])
-  employee_id   Int
+  employee_id   Int         @unique
 }
