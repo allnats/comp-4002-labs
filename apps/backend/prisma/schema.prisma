@@ -11,3 +11,27 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Employees {
+  id              Int           @id @unique @default(autoincrement())
+  firstname       String
+  lastname        String?
+  role            Roles?
+
+  department      Departments   @relation(fields: [department_id], references: [id])
+  department_id   Int
+}
+
+model Departments {
+  id          Int           @id @unique @default(autoincrement())
+  name        String        @unique
+  employees   Employees[]
+}
+
+model Roles {
+  id            Int         @id @unique @default(autoincrement())
+  name          String      @unique
+
+  employee      Employees   @relation(fields: [employee_id], references: [id])
+  employee_id   Int
+}
