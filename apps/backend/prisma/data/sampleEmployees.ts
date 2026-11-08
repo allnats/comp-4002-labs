@@ -1,4 +1,11 @@
-const sampleEmployees = [
+interface SeedEmployee {
+  id: number;
+  firstname: string;
+  lastname?: string;
+  department_id: number;
+}
+
+const sampleEmployees: SeedEmployee[] = [
   {
     id: 1,
     firstname: "Avery",
