@@ -19,6 +19,8 @@ async function main() {
     await tx.employees.deleteMany();
     await tx.departments.deleteMany();
 
+    // found this simpler option without using hash maps.
+    // This forces postgresql to reset the PK sequence.
     await tx.$executeRawUnsafe(`
       TRUNCATE TABLE "Roles", "Employees", "Departments"
       RESTART IDENTITY CASCADE
