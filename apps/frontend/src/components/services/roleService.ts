@@ -1,5 +1,5 @@
 import * as roleRepo from "../repository/roleRepo";
-import type Role from "../../models/role";
+import { NewRole } from "../../models/role";
 
 export async function validateRepo(role: string): Promise<string[]> {
   const errorMessages: string[] = [];
@@ -23,6 +23,6 @@ export async function getRoleNames() {
   return await roleRepo.getRoleNames();
 }
 
-export async function addRole(newRole: Role) {
-  await roleRepo.createRole(newRole);
+export async function addRole(newRole: NewRole) {
+  return await roleRepo.createRole(newRole);
 }

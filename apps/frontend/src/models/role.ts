@@ -1,5 +1,10 @@
 import type Employee from "./employee";
 
 export default interface Role extends Employee {
-  role: string;
+  name: string;
+  employee_id: number;
 }
+
+export type NewRole = Omit<Role, "firstName" | "lastName">;
+
+export { type Role };

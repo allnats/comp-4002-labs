@@ -21,14 +21,14 @@ function Organization() {
           <tbody>
             {roles.map((data) => (
               <tr key={`${data.firstName}${data.lastName}`}>
-                <td>{data.role}</td>
+                <td>{data.name}</td>
                 <td>{`${data.firstName} ${data.lastName}`}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <OrganizationForm createNewRole={createNewRole} />
+      <OrganizationForm roles={roles} createNewRole={createNewRole} />
     </>
   );
 }
