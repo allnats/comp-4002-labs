@@ -3,9 +3,8 @@ import z from "zod";
 
 const createRoleSchema = z
   .object({
-    firstName: z.string().trim().min(1),
-    lastName: z.string().trim().min(1).optional(),
-    role: z.string().trim().min(1),
+    name: z.string().trim().min(1),
+    employee_id: z.number().positive(),
   })
   .strict();
 

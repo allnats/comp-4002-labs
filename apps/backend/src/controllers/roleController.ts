@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as roleService from "../services/roleService";
-import Role from "@shared/types/role";
+import { DbRoleType } from "../models/dbModel";
 
 export async function getAllRoles(
   _req: Request,
@@ -34,7 +34,7 @@ export async function addRole(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const input = req.body as Role;
+    const input = req.body as DbRoleType;
     await roleService.addRole(input);
     res.status(200).json({ status: "Role successfully created." });
   } catch (err) {
