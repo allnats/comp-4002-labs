@@ -10,5 +10,5 @@ export async function getRoleNames() {
 }
 
 export async function addRole(newRole: DbRoleType) {
-  await roleRepo.createRole(newRole);
+  return await roleRepo.createRole(newRole);
 }

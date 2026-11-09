@@ -5,6 +5,7 @@ export async function getAllRoles() {
   const roles = await prisma.roles.findMany({
     select: {
       name: true,
+      employee_id: true,
       employee: {
         select: {
           firstname: true,

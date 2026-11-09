@@ -35,8 +35,8 @@ export async function addRole(
 ): Promise<void> {
   try {
     const input = req.body as DbRoleType;
-    await roleService.addRole(input);
-    res.status(200).json({ status: "Role successfully created." });
+    const newRole = await roleService.addRole(input);
+    res.status(200).json(newRole);
   } catch (err) {
     next(err);
   }
