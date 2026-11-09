@@ -65,7 +65,19 @@ async function createEmployee(
       body: JSON.stringify({ firstName, lastName, department }),
     });
 
-    return await readJson<EmployeeAPIResponse>(response);
+    const employee = await readJson<{
+      id: number;
+      firstname: string;
+      lastname: string | null;
+      department_id: number;
+    }>(response);
+
+    return {
+      employee_id: employee.id,
+      firstName: employee.firstname,
+      lastName: employee.lastname ?? undefined,
+      department_id: employee.department_id,
+    } satisfies EmployeeAPIResponse;
   } catch (err) {
     if (err instanceof Error) {
       throw err;

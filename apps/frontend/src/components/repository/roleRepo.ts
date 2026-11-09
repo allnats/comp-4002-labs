@@ -33,9 +33,10 @@ export async function createRole(newRole: NewRole) {
       body: JSON.stringify({ name, employee_id }),
     });
 
-    return await readJson<{ id: number; name: string; employee_id: number }>(
-      response,
-    );
+    const res:
+      | { id: number; name: string; employee_id: number }
+      | { error: string } = await response.json();
+    return res;
   } catch (err) {
     if (err instanceof Error) {
       throw err;

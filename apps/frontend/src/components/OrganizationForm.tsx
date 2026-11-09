@@ -2,6 +2,7 @@ import { type SubmitEvent } from "react";
 import useFormInput from "./hooks/useFormInput";
 import type { Role, NewRole } from "../models/role";
 import * as roleService from "./services/roleService";
+import useEmployee from "./hooks/useEmployee";
 
 function OrganizationForm({
   roles,
@@ -12,6 +13,7 @@ function OrganizationForm({
 }) {
   const role = useFormInput("");
   const employee_id = useFormInput("");
+  const { getAllEmployees } = useEmployee();
 
   function clearFields() {
     role.setValue("");
@@ -35,7 +37,7 @@ function OrganizationForm({
       name: role.value,
     };
 
-    const newEmployee = roles.find(
+    const newEmployee = getAllEmployees().find(
       (r) => r.employee_id === Number(employee_id.value),
     );
 
@@ -44,15 +46,29 @@ function OrganizationForm({
       return;
     }
 
-    // This one updates the repo (for persistence, when unmounted)
-    const response = await roleService.addRole(newRole);
-    // This one updates the state
+    try {
+      // This one updates the repo (for persistence, when unmounted)
+      const response = await roleService.addRole(newRole);
+      if ("error" in response) {
+        alert(response.error);
+        return;
+      }
 
-    createNewRole({
-      ...response,
-      firstName: newEmployee.firstName,
-      lastName: newEmployee?.lastName,
-    });
+      // This one updates the state
+      createNewRole({
+        ...response,
+        firstName: newEmployee.firstName,
+        lastName: newEmployee?.lastName,
+      });
+    } catch (err) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        console.error(err);
+        alert("Error: could not create new role.");
+      }
+      return;
+    }
 
     clearFields();
   }
@@ -69,9 +85,12 @@ function OrganizationForm({
           onChange={(e) => employee_id.setValue(e.target.value)}
         >
           <option value="">Select an Employee</option>
-          {roles.map((role) => (
-            <option value={role.employee_id} key={role.employee_id}>
-              {role.firstName} {role.lastName}
+          {getAllEmployees().map((employee, idx) => (
+            <option
+              value={employee.employee_id}
+              key={`${employee.employee_id}${idx}`}
+            >
+              {employee.firstName} {employee.lastName}
             </option>
           ))}
         </select>

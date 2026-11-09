@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import * as roleService from "../services/roleService";
 import { DbRoleType } from "../models/dbModel";
+import { Prisma } from "../../generated/prisma/client";
 
 export async function getAllRoles(
   _req: Request,
@@ -38,6 +39,15 @@ export async function addRole(
     const newRole = await roleService.addRole(input);
     res.status(200).json(newRole);
   } catch (err) {
+    if (
+      err instanceof Prisma.PrismaClientKnownRequestError &&
+      err.code === "P2002"
+    ) {
+      res.status(409).json({
+        error: "A role with that name or employee already exists",
+      });
+      return;
+    }
     next(err);
   }
 }
