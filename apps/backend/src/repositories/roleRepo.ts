@@ -17,8 +17,9 @@ export async function getAllRoles() {
 
   return roles.map((role) => ({
     name: role.name,
-    firstname: role.employee.firstname,
-    lastname: role.employee.lastname,
+    employee_id: role.employee_id,
+    firstName: role.employee.firstname,
+    lastName: role.employee.lastname,
   }));
 }
 

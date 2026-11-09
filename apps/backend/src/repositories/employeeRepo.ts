@@ -12,6 +12,7 @@ async function getAllDepartments() {
       name: true,
       employees: {
         select: {
+          id: true,
           firstname: true,
           lastname: true,
         },
@@ -22,6 +23,7 @@ async function getAllDepartments() {
   return departments.map((department) => ({
     name: department.name,
     employees: department.employees.map((employee) => ({
+      employeeId: employee.id,
       firstName: employee.firstname,
       lastName: employee.lastname,
     })),

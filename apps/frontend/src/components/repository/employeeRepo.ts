@@ -1,5 +1,5 @@
 import Department from "../../models/department";
-import Employee from "../../models/employee";
+import Employee, { EmployeeAPIResponse } from "../../models/employee";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const endpoint = `${baseUrl}/api/employees`;
@@ -65,7 +65,7 @@ async function createEmployee(
       body: JSON.stringify({ firstName, lastName, department }),
     });
 
-    await readJson<void>(response);
+    return await readJson<EmployeeAPIResponse>(response);
   } catch (err) {
     if (err instanceof Error) {
       throw err;

@@ -49,8 +49,12 @@ export async function createEmployee(
 ): Promise<void> {
   try {
     const { firstName, lastName, department } = req.body as DepartmentInput;
-    await employeeService.createEmployee(firstName, lastName, department);
-    res.status(200).json({ status: "Employee succesfully created." });
+    const newEmployee = await employeeService.createEmployee(
+      firstName,
+      lastName,
+      department,
+    );
+    res.status(200).json(newEmployee);
   } catch (err) {
     next(err);
   }

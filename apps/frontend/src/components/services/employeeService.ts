@@ -1,3 +1,4 @@
+import { EmployeeAPIResponse } from "../../models/employee";
 import * as employeeRepo from "../repository/employeeRepo";
 
 type validationResponse = {
@@ -36,12 +37,12 @@ async function getDepartmentEmployees(department: string) {
   return employeeRepo.getDepartmentEmployees(department);
 }
 
-function createEmployee(
+async function createEmployee(
   firstName: string,
   lastname: string | undefined,
   department: string,
-): void {
-  employeeRepo.createEmployee(firstName, lastname, department);
+): Promise<EmployeeAPIResponse> {
+  return employeeRepo.createEmployee(firstName, lastname, department);
 }
 
 const employeeService = {

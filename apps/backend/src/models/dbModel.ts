@@ -7,7 +7,7 @@ export interface DbRoleType {
 export interface DbEmployeeType {
   id: number;
   firstname: string;
-  lastname: string;
+  lastname: string | null;
   department_id: number;
 }
 
