@@ -5,10 +5,8 @@ import * as roleService from "./services/roleService";
 import useEmployee from "./hooks/useEmployee";
 
 function OrganizationForm({
-  roles,
   createNewRole,
 }: {
-  roles: Role[];
   createNewRole: (newRole: Role) => void;
 }) {
   const role = useFormInput("");

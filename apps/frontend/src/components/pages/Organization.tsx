@@ -28,7 +28,7 @@ function Organization() {
           </tbody>
         </table>
       </div>
-      <OrganizationForm roles={roles} createNewRole={createNewRole} />
+      <OrganizationForm createNewRole={createNewRole} />
     </>
   );
 }
