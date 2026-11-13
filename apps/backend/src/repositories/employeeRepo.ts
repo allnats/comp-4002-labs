@@ -1,4 +1,4 @@
-import { mockDepartmentData } from "./mockDepartmentData";
+import { prisma } from "../db/prisma";
 
 //TODO: Maybe wrap the data access in a try-catch block to emulate a real repo.
 
@@ -7,7 +7,27 @@ import { mockDepartmentData } from "./mockDepartmentData";
  * @returns Department[] - List of Departments from the mock.
  */
 async function getAllDepartments() {
-  return mockDepartmentData;
+  const departments = await prisma.departments.findMany({
+    select: {
+      name: true,
+      employees: {
+        select: {
+          id: true,
+          firstname: true,
+          lastname: true,
+        },
+      },
+    },
+  });
+
+  return departments.map((department) => ({
+    name: department.name,
+    employees: department.employees.map((employee) => ({
+      employee_id: employee.id,
+      firstName: employee.firstname,
+      lastName: employee.lastname,
+    })),
+  }));
 }
 
 /**
@@ -15,7 +35,13 @@ async function getAllDepartments() {
  * @returns string[] - list of department names
  */
 async function getDeparmentNames() {
-  return mockDepartmentData.map((d) => d.name);
+  const deptNames = await prisma.departments.findMany({
+    select: {
+      name: true,
+    },
+  });
+
+  return deptNames.map((r) => r.name);
 }
 
 /**
@@ -24,13 +50,34 @@ async function getDeparmentNames() {
  * @returns an array of Employees
  */
 async function getDepartmentEmployees(department: string) {
-  const targetDepartment = mockDepartmentData.find(
-    (d) => d.name === department,
-  );
+  const targetDepartment = await prisma.departments.findUnique({
+    where: {
+      name: department,
+    },
+    select: {
+      employees: {
+        select: {
+          firstname: true,
+          lastname: true,
+        },
+      },
+    },
+  });
 
   if (!targetDepartment) return [];
 
-  return targetDepartment.employees;
+  return targetDepartment.employees.map((employee) => ({
+    firstName: employee.firstname,
+    lastName: employee.lastname,
+  }));
+}
+
+async function getDepartmentById(department_id: number) {
+  return prisma.departments.findUnique({
+    where: {
+      id: department_id,
+    },
+  });
 }
 
 /**
@@ -47,31 +94,23 @@ async function createEmployee(
   lastName: string | undefined,
   department: string,
 ) {
-  try {
-    const targetDepartment = await getDepartmentEmployees(department);
-
-    if (targetDepartment.length === 0) {
-      throw new Error(
-        `Hey! Can't find ${department} for new employee ${firstName}`,
-      );
-      return;
-    }
-
-    targetDepartment.push({ firstName, lastName });
-  } catch (err) {
-    if (err instanceof Error) {
-      throw err;
-    } else {
-      throw new Error("RepositoryError: Failed to create an employee.", {
-        cause: err,
-      });
-    }
-  }
+  return prisma.employees.create({
+    data: {
+      firstname: firstName,
+      lastname: lastName ?? null,
+      department: {
+        connect: {
+          name: department,
+        },
+      },
+    },
+  });
 }
 
 export {
   getAllDepartments,
   getDeparmentNames,
   getDepartmentEmployees,
+  getDepartmentById,
   createEmployee,
 };

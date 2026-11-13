@@ -1,3 +1,4 @@
+import { DbEmployeeType } from "../models/dbModel";
 import * as employeeRepo from "../repositories/employeeRepo";
 
 async function getDepartmentNames() {
@@ -16,8 +17,8 @@ async function createEmployee(
   firstName: string,
   lastname: string | undefined,
   department: string,
-): Promise<void> {
-  await employeeRepo.createEmployee(firstName, lastname, department);
+): Promise<DbEmployeeType> {
+  return await employeeRepo.createEmployee(firstName, lastname, department);
 }
 
 const employeeService = {

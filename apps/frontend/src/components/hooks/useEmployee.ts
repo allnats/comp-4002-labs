@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import employeeService from "../services/employeeService";
 import type Department from "../../models/department";
+import Employee from "../../models/employee";
 
 function useEmployee() {
   const [employeeDepartment, setEmployeeDepartment] = useState<Department[]>(
@@ -42,12 +43,22 @@ function useEmployee() {
     return employeeService.getDepartmentNames();
   }
 
+  function getAllEmployees() {
+    let allEmployees: Employee[] = [];
+    for (const department of employeeDepartment) {
+      allEmployees = [...allEmployees, ...department.employees];
+    }
+
+    return allEmployees;
+  }
+
   return {
     employeeDepartment,
     isLoading,
     hasError,
     setEmployeeDepartment,
     getDepartmentNames,
+    getAllEmployees,
   };
 }
 

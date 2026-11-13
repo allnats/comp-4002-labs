@@ -1,4 +1,5 @@
 import type Role from "../../models/role";
+import { NewRole } from "../../models/role";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const endpoint = `${baseUrl}/api/roles`;
@@ -21,18 +22,21 @@ export async function getRoleNames() {
   return await readJson<string[]>(response);
 }
 
-export async function createRole(newRole: Role) {
+export async function createRole(newRole: NewRole) {
   try {
-    const { role, firstName, lastName } = newRole;
+    const { name, employee_id } = newRole;
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ firstName, lastName, role }),
+      body: JSON.stringify({ name, employee_id }),
     });
 
-    await readJson<void>(response);
+    const res:
+      | { id: number; name: string; employee_id: number }
+      | { error: string } = await response.json();
+    return res;
   } catch (err) {
     if (err instanceof Error) {
       throw err;

@@ -1,27 +1,47 @@
-import mockOrganizationData from "./mockOrganizationData";
-import type Role from "@shared/types/role";
+import { prisma } from "../db/prisma";
+import { type DbRoleType } from "../models/dbModel";
 
 export async function getAllRoles() {
-  return mockOrganizationData;
+  const roles = await prisma.roles.findMany({
+    select: {
+      name: true,
+      employee_id: true,
+      employee: {
+        select: {
+          firstname: true,
+          lastname: true,
+        },
+      },
+    },
+  });
+
+  return roles.map((role) => ({
+    name: role.name,
+    employee_id: role.employee_id,
+    firstName: role.employee.firstname,
+    lastName: role.employee.lastname,
+  }));
 }
 
 export async function getRoleNames() {
-  return mockOrganizationData.map((r) => r.role);
+  const rolesNames = await prisma.roles.findMany({
+    select: {
+      name: true,
+    },
+  });
+
+  return rolesNames.map((r) => r.name);
 }
 
-export async function createRole(newRole: Role) {
-  try {
-    const { role, firstName, lastName } = newRole;
-    const allRoles = await getAllRoles();
+export async function createRole(newRole: Omit<DbRoleType, "id">) {
+  const { name, employee_id } = newRole;
 
-    allRoles.push({ role, firstName, lastName });
-  } catch (err) {
-    if (err instanceof Error) {
-      throw err;
-    } else {
-      throw new Error("RepositoryError: Failed to create role.", {
-        cause: err,
-      });
-    }
-  }
+  const newDbRole = await prisma.roles.create({
+    data: {
+      name,
+      employee_id,
+    },
+  });
+
+  return newDbRole;
 }

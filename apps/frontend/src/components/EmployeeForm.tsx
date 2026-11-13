@@ -2,6 +2,7 @@ import { type SubmitEvent } from "react";
 import type Department from "../models/department";
 import useFormInput from "./hooks/useFormInput";
 import employeeService from "./services/employeeService";
+import { EmployeeAPIResponse } from "../models/employee";
 
 type EmployeeFormProps = {
   departmentList: string[];
@@ -42,10 +43,13 @@ function EmployeeForm({
       return;
     }
 
-    const newEmployee = {
-      firstName: firstName.value,
-      lastName: lastName.value || undefined,
-    };
+    // This this the block of code to update employees in lab 3.1 and after
+    const newEmployee: EmployeeAPIResponse =
+      await employeeService.createEmployee(
+        firstName.value,
+        lastName.value,
+        department.value,
+      );
 
     // This is the block of code to update employees pre lab 3.1
     updateEmployeeDept((currentList) =>
@@ -59,13 +63,6 @@ function EmployeeForm({
 
         return currentDepartment;
       }),
-    );
-
-    // This this the block of code to update employees in lab 3.1 and after
-    employeeService.createEmployee(
-      firstName.value,
-      lastName.value,
-      department.value,
     );
 
     clearFields();

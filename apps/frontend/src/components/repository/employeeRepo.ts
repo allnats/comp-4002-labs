@@ -1,5 +1,5 @@
 import Department from "../../models/department";
-import Employee from "../../models/employee";
+import Employee, { EmployeeAPIResponse } from "../../models/employee";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const endpoint = `${baseUrl}/api/employees`;
@@ -65,7 +65,19 @@ async function createEmployee(
       body: JSON.stringify({ firstName, lastName, department }),
     });
 
-    await readJson<void>(response);
+    const employee = await readJson<{
+      id: number;
+      firstname: string;
+      lastname: string | null;
+      department_id: number;
+    }>(response);
+
+    return {
+      employee_id: employee.id,
+      firstName: employee.firstname,
+      lastName: employee.lastname ?? undefined,
+      department_id: employee.department_id,
+    } satisfies EmployeeAPIResponse;
   } catch (err) {
     if (err instanceof Error) {
       throw err;

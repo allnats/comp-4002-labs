@@ -1,32 +1,30 @@
 import { type SubmitEvent } from "react";
 import useFormInput from "./hooks/useFormInput";
-import type Role from "../models/role";
-import * as employeeService from "./services/employeeService";
+import type { Role, NewRole } from "../models/role";
 import * as roleService from "./services/roleService";
+import useEmployee from "./hooks/useEmployee";
 
 function OrganizationForm({
+  roles,
   createNewRole,
 }: {
+  roles: Role[];
   createNewRole: (newRole: Role) => void;
 }) {
-  const firstName = useFormInput("");
-  const lastName = useFormInput("");
   const role = useFormInput("");
+  const employee_id = useFormInput("");
+  const { getAllEmployees } = useEmployee();
 
   function clearFields() {
-    firstName.setValue("");
-    lastName.setValue("");
     role.setValue("");
+    employee_id.setValue("");
   }
 
   async function handleFormSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const firstNameErrors = await firstName.validate(
-      employeeService.validateFirstName,
-    );
     const roleErrors = await role.validate(roleService.validateRepo);
-    const errors: string[] = [...firstNameErrors, ...roleErrors];
+    const errors: string[] = [...roleErrors];
 
     // Break out if there's a validation error
     if (errors.length) {
@@ -34,16 +32,43 @@ function OrganizationForm({
       return;
     }
 
-    const newRole = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      role: role.value,
+    const newRole: NewRole = {
+      employee_id: Number(employee_id.value),
+      name: role.value,
     };
 
-    // This one updates the state
-    createNewRole(newRole);
-    // This one updates the repo (for persistence, when unmounted)
-    await roleService.addRole(newRole);
+    const newEmployee = getAllEmployees().find(
+      (r) => r.employee_id === Number(employee_id.value),
+    );
+
+    if (!newEmployee) {
+      alert("Selected employee could not be found.");
+      return;
+    }
+
+    try {
+      // This one updates the repo (for persistence, when unmounted)
+      const response = await roleService.addRole(newRole);
+      if ("error" in response) {
+        alert(response.error);
+        return;
+      }
+
+      // This one updates the state
+      createNewRole({
+        ...response,
+        firstName: newEmployee.firstName,
+        lastName: newEmployee?.lastName,
+      });
+    } catch (err) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        console.error(err);
+        alert("Error: could not create new role.");
+      }
+      return;
+    }
 
     clearFields();
   }
@@ -53,23 +78,22 @@ function OrganizationForm({
       <fieldset>
         <legend>Add a new Employee</legend>
 
-        {/* First name Input field */}
-        <label htmlFor="fname">First Name</label>
-        <input
-          type="text"
-          name="fname"
-          value={firstName.value}
-          onChange={(e) => firstName.setValue(() => e.target.value)}
-        />
-
-        {/* Last name Input field */}
-        <label htmlFor="lname">Last Name</label>
-        <input
-          type="text"
-          name="lname"
-          value={lastName.value}
-          onChange={(e) => lastName.setValue(() => e.target.value)}
-        />
+        <label htmlFor="employee">Employee</label>
+        <select
+          name="employee"
+          value={employee_id.value}
+          onChange={(e) => employee_id.setValue(e.target.value)}
+        >
+          <option value="">Select an Employee</option>
+          {getAllEmployees().map((employee, idx) => (
+            <option
+              value={employee.employee_id}
+              key={`${employee.employee_id}${idx}`}
+            >
+              {employee.firstName} {employee.lastName}
+            </option>
+          ))}
+        </select>
 
         {/* Role field */}
         <label htmlFor="role">Role</label>
