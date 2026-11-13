@@ -8,7 +8,7 @@ import sampleEmployees from "./data/sampleEmployees";
 import sampleRoles from "./data/sampleRoles";
 
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.STORAGE_DATABASE_URL,
 });
 
 const prisma = new PrismaClient({ adapter });
